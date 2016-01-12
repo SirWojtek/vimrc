@@ -55,7 +55,9 @@ endif
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_filetype_whitelist = { 'cpp': 1, 'py' : 1 }
+let g:ycm_filetype_whitelist = {
+	\ 'cpp': 1,
+	\ 'python' : 1 }
 let g:ycm_error_symbol = '*'
 
 syntax enable
