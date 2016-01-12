@@ -58,7 +58,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_filetype_whitelist = { 'cpp': 1, 'py' : 1 }
 let g:ycm_error_symbol = '*'
 
-set syntax
+syntax enable
 set number
 set nowrap
 set tabstop=4
