@@ -74,8 +74,10 @@ set autoread
 
 autocmd BufWritePost *.cpp,*.hpp,*.c,*.h !cppcheck % && vera++ %
 
-map <C-Up> :tabprevious<CR>
-map <C-Down> :tabnext<CR>
+map <C-Down> :tabprevious<CR>
+map <C-Up> :tabnext<CR>
+map <C-n> :tabnew<CR>
+map <C-w> :tabclose<CR>
 
 map <F7> :!mmake -j`nproc`<CR>
 map <F8> :!mmake clean<CR>
