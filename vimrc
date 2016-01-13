@@ -79,6 +79,8 @@ map <C-Up> :tabnext<CR>
 map <C-n> :tabnew<CR>
 map <C-m> :tabclose<CR>
 
+map <C-.> :NERDTree .
+
 map <F7> :!mmake -j`nproc`<CR>
 map <F8> :!mmake clean<CR>
 map <F9> :!mmake utest<CR>
