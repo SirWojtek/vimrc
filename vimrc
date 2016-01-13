@@ -77,7 +77,7 @@ autocmd BufWritePost *.cpp,*.hpp,*.c,*.h !cppcheck % && vera++ %
 map <C-Down> :tabprevious<CR>
 map <C-Up> :tabnext<CR>
 map <C-n> :tabnew<CR>
-map <C-w> :tabclose<CR>
+map <C-m> :tabclose<CR>
 
 map <F7> :!mmake -j`nproc`<CR>
 map <F8> :!mmake clean<CR>
