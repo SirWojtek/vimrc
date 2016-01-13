@@ -26,6 +26,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'https://github.com/scrooloose/nerdcommenter'
 Plugin 'tpope/vim-sleuth'
+Plugin 'Lokaltog/vim-powerline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,6 +53,7 @@ if has('gui_running')
 	set guioptions-=L  "remove left-hand scroll bar
 endif
 
+" YouCompleteMe configuration
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -59,6 +61,10 @@ let g:ycm_filetype_whitelist = {
 	\ 'cpp': 1,
 	\ 'python' : 1 }
 let g:ycm_error_symbol = '*'
+
+" Powerline configuration
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
 
 syntax enable
 set number
