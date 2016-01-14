@@ -81,7 +81,7 @@ autocmd BufWritePost *.cpp,*.hpp,*.c,*.h !cppcheck % && vera++ %
 
 map <C-Down> :bprevious<CR>
 map <C-Up> :bnext<CR>
-map <C-m> :bdelete<CR>
+map <C-Delete> :bdelete<CR>
 
 map <C-t> :NERDTree .<CR>
 
