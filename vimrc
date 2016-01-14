@@ -23,10 +23,13 @@ Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'https://github.com/scrooloose/nerdcommenter'
 Plugin 'tpope/vim-sleuth'
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -47,7 +50,7 @@ colorscheme desert
 set path=$PWD/**
 
 if has('gui_running')
-	set guifont=Inconsolata\ 12
+	set guifont=Inconsolata\ for\ Powerline\ 12
 	set guioptions-=T  "remove toolbar
 	set guioptions-=r  "remove right-hand scroll bar
 	set guioptions-=L  "remove left-hand scroll bar
@@ -62,22 +65,24 @@ let g:ycm_filetype_whitelist = {
 	\ 'python' : 1 }
 let g:ycm_error_symbol = '*'
 
-" Powerline configuration
+" Airline configuration
 set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'murmur'
 
 syntax enable
 set number
 set nowrap
 set tabstop=4
 set autoread
+:highlight Pmenu guibg=brown gui=bold
 
 autocmd BufWritePost *.cpp,*.hpp,*.c,*.h !cppcheck % && vera++ %
 
-map <C-Down> :tabprevious<CR>
-map <C-Up> :tabnext<CR>
-map <C-n> :tabnew<CR>
-map <C-m> :tabclose<CR>
+map <C-Down> :bprevious<CR>
+map <C-Up> :bnext<CR>
+map <C-m> :bdelete<CR>
 
 map <C-t> :NERDTree .<CR>
 
