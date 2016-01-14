@@ -75,7 +75,7 @@ set number
 set nowrap
 set tabstop=4
 set autoread
-:highlight Pmenu guibg=brown gui=bold
+highlight Pmenu guibg=brown gui=bold
 
 autocmd BufWritePost *.cpp,*.hpp,*.c,*.h !cppcheck % && vera++ %
 
