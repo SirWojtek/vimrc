@@ -69,6 +69,10 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'murmur'
 
+" Vim-gutter configuration
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+
 syntax enable
 set number
 set nowrap
@@ -177,7 +181,7 @@ function! AutoHighlightToggle()
     setl updatetime=4000
     echo 'Highlight current word: OFF'
     return 0
-  else	
+  else
     augroup auto_highlight
       au!
       au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
