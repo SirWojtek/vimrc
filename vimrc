@@ -62,6 +62,9 @@ let g:ycm_filetype_whitelist = {
 	\ 'cpp': 1,
 	\ 'python' : 1 }
 let g:ycm_error_symbol = '*'
+map <silent> gd :YcmCompleter GoToDeclaration<CR>
+map <silent> gf :YcmCompleter GoToDefinition<CR>
+
 
 " Airline configuration
 set laststatus=2   " Always show the statusline
@@ -84,6 +87,10 @@ autocmd BufWritePost *.cpp,*.hpp,*.c,*.h !cppcheck % && vera++ %
 
 map <C-Down> :bprevious<CR>
 map <C-Up> :bnext<CR>
+
+let excluded_files = "\"*.pro moc_*\""
+
+map <F4> :execute "silent lgrep! -srnw --binary-files=without-match --exclude-dir=.git --exclude="excluded_files" . -e " . expand("<cword>") . " " <bar> lopen 33<CR>
 
 map <C-t> :NERDTree .<CR>
 
