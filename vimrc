@@ -83,7 +83,7 @@ set tabstop=4
 set autoread
 highlight Pmenu guibg=brown gui=bold
 
-autocmd BufWritePost *.cpp,*.hpp,*.c,*.h !cppcheck % && vera++ %
+map <F5> :!cppcheck % && vera++ %<CR>
 
 map <C-Down> :bprevious<CR>
 map <C-Up> :bnext<CR>
