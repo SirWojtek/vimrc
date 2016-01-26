@@ -28,6 +28,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-sleuth'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -93,6 +94,7 @@ let excluded_files = "\"*.pro moc_*\""
 map <F4> :execute "silent lgrep! -srnw --binary-files=without-match --exclude-dir=.git --exclude="excluded_files" . -e " . expand("<cword>") . " " <bar> lopen 33<CR>
 
 map <C-t> :NERDTree .<CR>
+map <S-t> :TagbarToggle<CR>
 
 map <F7> :!mmake -j`nproc`<CR>
 map <F8> :!mmake clean<CR>
@@ -100,6 +102,11 @@ map <F9> :!mmake utest<CR>
 map <F10> :!mmake utest clean<CR>
 map <F11> :!mmake mtest<CR>
 map <F12> :!mmake mtest clean<CR>
+
+" Ctags configuration
+set tags=~/.vim/current_tags
+command Ctags execute "!ctags -R --tag-relative=yes --exclude=\".git|build\" -f "&tags"."
+nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
 
 " Delete buffer while keeping window layout (don't close buffer's windows).
 " Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165
