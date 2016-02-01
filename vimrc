@@ -82,6 +82,7 @@ set number
 set nowrap
 set tabstop=4
 set autoread
+set previewheight=25
 highlight Pmenu guibg=brown gui=bold
 
 map <F5> :!cppcheck % && vera++ %<CR>
