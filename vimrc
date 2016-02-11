@@ -29,6 +29,7 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
