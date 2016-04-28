@@ -27,6 +27,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-sleuth'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
@@ -49,11 +50,11 @@ colorscheme desert
 set path=$PWD/**
 
 if has('gui_running')
-	set guifont=Inconsolata\ for\ Powerline\ 12
-	set guioptions-=m  "remove menu bar
-	set guioptions-=T  "remove toolbar
-	set guioptions-=r  "remove right-hand scroll bar
-	set guioptions-=L  "remove left-hand scroll bar
+  set guifont=Inconsolata\ for\ Powerline\ 12
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
 endif
 
 " YouCompleteMe configuration
@@ -61,8 +62,8 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_filetype_whitelist = {
-	\ 'cpp': 1,
-	\ 'python' : 1 }
+      \ 'cpp': 1,
+      \ 'python' : 1 }
 let g:ycm_error_symbol = '*'
 map <silent> gd :YcmCompleter GoToDeclaration<CR>
 map <silent> gf :YcmCompleter GoToDefinition<CR>
@@ -87,24 +88,13 @@ set autoread
 set previewheight=25
 highlight Pmenu guibg=brown gui=bold
 
-map <F5> :!cppcheck % && vera++ %<CR>
-
 map <C-Down> :bprevious<CR>
 map <C-Up> :bnext<CR>
-
-let excluded_files = "\"*.pro moc_*\""
 
 map <F4> :execute "silent lgrep! -srnw --binary-files=without-match --exclude-dir=.git --exclude="excluded_files" . -e " . expand("<cword>") . " " <bar> lopen 33<CR>
 
 map <C-t> :NERDTree .<CR>
 map <S-t> :TagbarToggle<CR>
-
-map <F7> :!mmake -j`nproc`<CR>
-map <F8> :!mmake clean<CR>
-map <F9> :!mmake utest<CR>
-map <F10> :!mmake utest clean<CR>
-map <F11> :!mmake mtest<CR>
-map <F12> :!mmake mtest clean<CR>
 
 " Ctags configuration
 set tags=~/.vim/current_tags
