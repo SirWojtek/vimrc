@@ -31,6 +31,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -63,7 +64,9 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_filetype_whitelist = {
       \ 'cpp': 1,
-      \ 'python' : 1 }
+      \ 'python' : 1,
+      \ 'go' : 1
+\}
 let g:ycm_error_symbol = '*'
 map <silent> gd :YcmCompleter GoToDeclaration<CR>
 map <silent> gf :YcmCompleter GoToDefinition<CR>
