@@ -95,6 +95,8 @@ highlight Pmenu guibg=brown gui=bold
 map <C-Down> :bprevious<CR>
 map <C-Up> :bnext<CR>
 
+let excluded_files=""
+
 map <F4> :execute "silent lgrep! -srnw --binary-files=without-match --exclude-dir=.git --exclude="excluded_files" . -e " . expand("<cword>") . " " <bar> lopen 33<CR>
 
 map <C-t> :NERDTree .<CR>
