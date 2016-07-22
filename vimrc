@@ -90,6 +90,7 @@ set nowrap
 set tabstop=4
 set autoread
 set previewheight=25
+set makeprg=ninja
 highlight Pmenu guibg=brown gui=bold
 
 map <C-Down> :bprevious<CR>
