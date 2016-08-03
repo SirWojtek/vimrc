@@ -93,8 +93,8 @@ set previewheight=25
 set makeprg=ninja
 highlight Pmenu guibg=brown gui=bold
 
-map <C-Down> :bprevious<CR>
-map <C-Up> :bnext<CR>
+map <C-j> :bprevious<CR>
+map <C-k> :bnext<CR>
 
 let excluded_files=""
 
