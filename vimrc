@@ -94,6 +94,7 @@ set autoread
 set previewheight=25
 set makeprg=ninja
 highlight Pmenu guibg=brown gui=bold
+autocmd BufWritePre * %s/\s\+$//e
 
 map <C-j> :bprevious<CR>
 map <C-k> :bnext<CR>
