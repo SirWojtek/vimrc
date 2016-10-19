@@ -35,6 +35,7 @@ Plugin 'fatih/vim-go'
 Plugin 'rust-lang/rust.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'icholy/typescript-tools.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -68,6 +69,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_filetype_whitelist = {
       \ 'cpp': 1,
       \ 'python' : 1,
+      \ 'typescript' : 1,
       \ 'go' : 1
 \}
 let g:ycm_error_symbol = '*'
