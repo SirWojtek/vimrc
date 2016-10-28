@@ -36,6 +36,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'icholy/typescript-tools.git'
+Plugin 'Vaelatern/vim-script-refactor'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
