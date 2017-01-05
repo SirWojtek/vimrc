@@ -35,7 +35,6 @@ Plugin 'fatih/vim-go'
 Plugin 'rust-lang/rust.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'icholy/typescript-tools.git'
 Plugin 'Vaelatern/vim-script-refactor'
 Plugin 'mattn/emmet-vim'
 
