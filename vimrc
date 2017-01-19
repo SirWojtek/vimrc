@@ -89,6 +89,9 @@ let g:airline_theme = 'murmur'
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
+" ctrlp configuration
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
 syntax enable
 set number
 set nowrap
