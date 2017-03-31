@@ -37,6 +37,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Vaelatern/vim-script-refactor'
 Plugin 'mattn/emmet-vim'
+Plugin 'Valloric/MatchTagAlways'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
