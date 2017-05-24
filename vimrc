@@ -36,8 +36,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Shougo/vimproc.vim'
-"Plugin 'Quramy/tsuquyomi'
-"Plugin 'vim-syntastic/syntastic'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
