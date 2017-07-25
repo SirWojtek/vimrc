@@ -56,6 +56,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 colorscheme desert
 set path=$PWD/**
+set backupcopy=yes  " avoid multiple buffer save (issue with watch command)
 
 if has('gui_running')
   set guifont=Inconsolata\ for\ Powerline\ 14
