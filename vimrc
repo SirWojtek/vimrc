@@ -39,6 +39,9 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'mhinz/vim-startify'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -109,6 +112,10 @@ nmap [h <Plug>GitGutterPrevHunk
 
 " ctrlp configuration
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" vim-session configuration
+let g:session_directory = '~/.vim/session'
+let g:session_autosave_periodic = 5
 
 syntax enable
 set number
