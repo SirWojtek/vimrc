@@ -60,6 +60,7 @@ filetype plugin indent on    " required
 colorscheme desert
 set path=$PWD/**
 set backupcopy=yes  " avoid multiple buffer save (issue with watch command)
+set directory^=$HOME/.vim/tmp//  " swp files outside working dir
 
 if has('gui_running')
   set guifont=Inconsolata\ for\ Powerline\ 14
@@ -81,7 +82,9 @@ let g:syntastic_check_on_wq = 0
 
 " Tsuquyomi configuration
 let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_typescript_checkers = ['tslint', 'tsuquyomi']
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 
 " YouCompleteMe configuration
