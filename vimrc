@@ -72,17 +72,19 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+
+" Tsuquyomi configuration
+let g:tsuquyomi_disable_quickfix = 1
+map <C-i> :TsuImport<CR>
+
+" Syntastic configuration
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-" Tsuquyomi configuration
-let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_typescript_checkers = ['tslint']
-autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 
 " YouCompleteMe configuration
 let g:ycm_confirm_extra_conf = 0
