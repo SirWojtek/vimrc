@@ -39,6 +39,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'mhinz/vim-startify'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+Plugin 'artur-shaik/vim-javacomplete2'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -72,9 +73,22 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" javacomplete settings
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+nmap <F5> <Plug>(JavaComplete-Imports-Add)
+imap <F5> <Plug>(JavaComplete-Imports-Add)
+nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 
 " Tsuquyomi configuration
 let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_shortest_import_path = 1
+let g:tsuquyomi_disable_default_mappings = 1
+let g:tsuquyomi_single_quote_import = 1
 map <C-i> :TsuImport<CR>
 
 " Syntastic configuration
@@ -85,6 +99,13 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_typescript_checkers = ['tslint']
+let g:syntastic_typescript_tslint_args = ['--fix']
+" enable autoread to reload any files from files when checktime is called and
+" the file is changed
+set autoread
+function! SyntasticCheckHook(errors)
+  checktime
+endfunction
 
 " YouCompleteMe configuration
 let g:ycm_confirm_extra_conf = 0
@@ -92,6 +113,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_filetype_whitelist = {
       \ 'cpp': 1,
+      \ 'java': 1,
       \ 'python' : 1,
       \ 'typescript' : 1,
       \ 'go' : 1
@@ -134,9 +156,7 @@ map <C-k> :bnext<CR>
 
 let excluded_files=""
 
-map <F4> :execute "silent lgrep! -srnw --binary-files=without-match --exclude-dir=.git --exclude="excluded_files" . -e " . expand("<cword>") . " " <bar> lopen 33<CR>
-
-map <C-t> :NERDTree .<CR>
+map <C-t> :NERDTreeToggle .<CR>
 map <S-t> :TagbarToggle<CR>
 
 " Ctags configuration
