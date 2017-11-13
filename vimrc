@@ -61,7 +61,7 @@ set backupcopy=yes  " avoid multiple buffer save (issue with watch command)
 set directory^=$HOME/.vim/tmp//  " swp files outside working dir
 
 if has('gui_running')
-  set guifont=Inconsolata\ for\ Powerline\ 14
+  set guifont=FiraCode\ 11
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
