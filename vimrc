@@ -37,7 +37,6 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'mhinz/vim-startify'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
-Plugin 'artur-shaik/vim-javacomplete2'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -70,17 +69,6 @@ endif
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-" javacomplete settings
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-nmap <F5> <Plug>(JavaComplete-Imports-Add)
-imap <F5> <Plug>(JavaComplete-Imports-Add)
-nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
-imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 
 " Tsuquyomi configuration
 let g:tsuquyomi_disable_quickfix = 1
