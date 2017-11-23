@@ -37,6 +37,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'mhinz/vim-startify'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+Bundle 'https://github.com/gorodinskiy/vim-coloresque.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -246,5 +247,9 @@ function! AutoHighlightToggle()
     echo 'Highlight current word: ON'
     return 1
   endif
+endfunction
+
+function! g:Indent2Spaces()
+  %s;^\(\s\+\);\=repeat(' ', len(submatch(0))/2);g
 endfunction
 
