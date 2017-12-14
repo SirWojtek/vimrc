@@ -37,7 +37,6 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'mhinz/vim-startify'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
-Bundle 'https://github.com/gorodinskiy/vim-coloresque.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -123,6 +122,7 @@ nmap [h <Plug>GitGutterPrevHunk
 
 " ctrlp configuration
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_working_path_mode = 'r'
 
 " vim-session configuration
 let g:session_directory = '~/.vim/session'
@@ -145,6 +145,9 @@ let excluded_files=""
 
 map <C-t> :NERDTreeToggle .<CR>
 map <S-t> :TagbarToggle<CR>
+
+" NERD Commenter configuration
+let g:NERDSpaceDelims = 1
 
 " Ctags configuration
 set tags=~/.vim/current_tags
