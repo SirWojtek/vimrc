@@ -32,7 +32,6 @@ Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'mhinz/vim-startify'
 Plugin 'xolox/vim-misc'
@@ -70,13 +69,6 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Tsuquyomi configuration
-let g:tsuquyomi_disable_quickfix = 1
-let g:tsuquyomi_shortest_import_path = 1
-let g:tsuquyomi_disable_default_mappings = 1
-let g:tsuquyomi_single_quote_import = 1
-map <C-i> :TsuImport<CR>
-
 " Syntastic configuration
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -107,6 +99,7 @@ let g:ycm_filetype_whitelist = {
 let g:ycm_error_symbol = '*'
 map <silent> gd :YcmCompleter GoToDeclaration<CR>
 map <silent> gf :YcmCompleter GoToDefinition<CR>
+map <C-i> :YcmCompleter FixIt<CR>
 
 
 " Airline configuration
