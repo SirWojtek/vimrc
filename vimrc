@@ -39,6 +39,7 @@ Plugin 'xolox/vim-session'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-surround'
+Plugin 'prettier/vim-prettier'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -124,6 +125,9 @@ let g:ctrlp_working_path_mode = 'r'
 let g:session_directory = '~/.vim/session'
 let g:session_autosave_periodic = 5
 
+" vim-prettier configuration
+autocmd BufWritePre * Prettier
+
 syntax enable
 set number
 set nowrap
@@ -132,7 +136,6 @@ set autoread
 set previewheight=25
 set makeprg=ninja
 highlight Pmenu guibg=brown gui=bold
-autocmd BufWritePre * %s/\s\+$//e
 
 map <C-j> :bprevious<CR>
 map <C-k> :bnext<CR>
@@ -246,9 +249,5 @@ function! AutoHighlightToggle()
     echo 'Highlight current word: ON'
     return 1
   endif
-endfunction
-
-function! g:Indent2Spaces()
-  %s;^\(\s\+\);\=repeat(' ', len(submatch(0))/2);g
 endfunction
 
