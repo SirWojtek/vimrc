@@ -98,7 +98,8 @@ let g:ycm_filetype_whitelist = {
       \ 'java': 1,
       \ 'python' : 1,
       \ 'typescript' : 1,
-      \ 'go' : 1
+      \ 'go' : 1,
+      \ 'cs' : 1
 \}
 let g:ycm_error_symbol = '*'
 map <silent> gd :YcmCompleter GoToDeclaration<CR>
@@ -126,7 +127,9 @@ let g:session_directory = '~/.vim/session'
 let g:session_autosave_periodic = 5
 
 " vim-prettier configuration
-autocmd BufWritePre * Prettier
+autocmd BufWritePre *.ts Prettier
+autocmd BufWritePre *.scss Prettier
+autocmd BufWritePre *.less Prettier
 
 syntax enable
 set number
