@@ -126,10 +126,14 @@ let g:ctrlp_working_path_mode = 'r'
 let g:session_directory = '~/.vim/session'
 let g:session_autosave_periodic = 5
 
+" no trailing spaces
+autocmd BufWritePre * %s/\s\+$//e
+
 " vim-prettier configuration
 autocmd BufWritePre *.ts Prettier
 autocmd BufWritePre *.scss Prettier
 autocmd BufWritePre *.less Prettier
+
 
 syntax enable
 set number
