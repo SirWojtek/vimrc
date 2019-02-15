@@ -40,6 +40,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-surround'
 Plugin 'prettier/vim-prettier'
+Plugin 'morhetz/gruvbox'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,7 +56,8 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-colorscheme desert
+colorscheme gruvbox
+set background=dark
 set path=$PWD/**
 set backupcopy=yes  " avoid multiple buffer save (issue with watch command)
 set directory^=$HOME/.vim/tmp//  " swp files outside working dir
@@ -112,7 +114,6 @@ set laststatus=2   " Always show the statusline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
-let g:airline_theme = 'murmur'
 
 " Vim-gutter configuration
 nmap ]h <Plug>GitGutterNextHunk
