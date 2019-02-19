@@ -27,7 +27,6 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'leafgarland/typescript-vim'
@@ -41,6 +40,8 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-surround'
 Plugin 'prettier/vim-prettier'
 Plugin 'morhetz/gruvbox'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -160,6 +161,24 @@ let g:NERDSpaceDelims = 1
 set tags=~/.vim/current_tags
 command Ctags execute "!ctags -R --tag-relative=yes --exclude=\".git|build\" -f "&tags"."
 nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
+
+" fzf conf
+map <C-p> :GFiles<CR>
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+let g:fzf_layout = { 'down': '~20%' }
 
 " Delete buffer while keeping window layout (don't close buffer's windows).
 " Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165
