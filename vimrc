@@ -18,7 +18,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
@@ -41,6 +41,7 @@ Plugin 'prettier/vim-prettier'
 Plugin 'morhetz/gruvbox'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -92,21 +93,56 @@ function! SyntasticCheckHook(errors)
 endfunction
 
 " YouCompleteMe configuration
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_filetype_whitelist = {
-      \ 'cpp': 1,
-      \ 'java': 1,
-      \ 'python' : 1,
-      \ 'typescript' : 1,
-      \ 'go' : 1,
-      \ 'cs' : 1
-\}
-let g:ycm_error_symbol = '*'
-map <silent> gd :YcmCompleter GoToDeclaration<CR>
-map <silent> gf :YcmCompleter GoToDefinition<CR>
-map <C-i> :YcmCompleter FixIt<CR>
+" let g:ycm_confirm_extra_conf = 0
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_filetype_whitelist = {
+      " \ 'cpp': 1,
+      " \ 'java': 1,
+      " \ 'python' : 1,
+      " \ 'typescript' : 1,
+      " \ 'go' : 1,
+      " \ 'cs' : 1
+" \}
+" let g:ycm_error_symbol = '*'
+" map <silent> gd :YcmCompleter GoToDeclaration<CR>
+" map <silent> gf :YcmCompleter GoToDefinition<CR>
+" map <C-i> :YcmCompleter FixIt<CR>
+
+" CoC configuration
+" Better display for messages
+set cmdheight=2
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 
 " Airline configuration
@@ -131,9 +167,9 @@ let g:session_autosave_periodic = 5
 autocmd BufWritePre * %s/\s\+$//e
 
 " vim-prettier configuration
-autocmd BufWritePre *.ts Prettier
-autocmd BufWritePre *.scss Prettier
-autocmd BufWritePre *.less Prettier
+" autocmd BufWritePre *.ts Prettier
+" autocmd BufWritePre *.scss Prettier
+" autocmd BufWritePre *.less Prettier
 
 
 syntax enable
