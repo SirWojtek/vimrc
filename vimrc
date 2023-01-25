@@ -27,23 +27,18 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mattn/emmet-vim'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'mhinz/vim-startify'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'tpope/vim-surround'
 Plugin 'prettier/vim-prettier'
 Plugin 'morhetz/gruvbox'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -72,45 +67,15 @@ if has('gui_running')
   set guioptions-=L  "remove left-hand scroll bar
 endif
 
-" Syntastic configuration
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" Syntastic configuration
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_typescript_checkers = ['tslint']
-let g:syntastic_typescript_tslint_args = ['--fix']
-" enable autoread to reload any files from files when checktime is called and
-" the file is changed
 set autoread
 function! SyntasticCheckHook(errors)
   checktime
 endfunction
 
-" YouCompleteMe configuration
-" let g:ycm_confirm_extra_conf = 0
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_filetype_whitelist = {
-      " \ 'cpp': 1,
-      " \ 'java': 1,
-      " \ 'python' : 1,
-      " \ 'typescript' : 1,
-      " \ 'go' : 1,
-      " \ 'cs' : 1
-" \}
-" let g:ycm_error_symbol = '*'
-" map <silent> gd :YcmCompleter GoToDeclaration<CR>
-" map <silent> gf :YcmCompleter GoToDefinition<CR>
-" map <C-i> :YcmCompleter FixIt<CR>
-
 " CoC configuration
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 " Better display for messages
 set cmdheight=2
 " don't give |ins-completion-menu| messages.
@@ -145,6 +110,10 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Airline configuration
 set laststatus=2   " Always show the statusline
@@ -156,13 +125,16 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
+" command-t configuration
+let g:CommandTPreferredImplementation='lua'
+
 " ctrlp configuration
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_working_path_mode = 'r'
 
 " vim-session configuration
 let g:session_directory = '~/.vim/session'
-let g:session_autosave_periodic = 5
+let g:session_autoload = 'no'
 
 " no trailing spaces
 autocmd BufWritePre * %s/\s\+$//e
